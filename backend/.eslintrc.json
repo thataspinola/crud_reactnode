@@ -19,6 +19,8 @@
       "func-names": "off",
       "no-underscore-dangle": "off",
       "no-use-before-define": "off",
+      "no-param-reassign": "off",
+      "consistent-return": "off",
       "quotes": [0, "single"],
       "linebreak-style": 0 
     }

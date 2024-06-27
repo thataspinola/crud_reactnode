@@ -13,8 +13,8 @@ const mySqlConnection = require('./config/mySqlConnection.config');
 const app = express();
 
 // ==> Rotas da API:
-// const index = require('./routes/index');
-// const userRoutes = require('./routes/user.routes');
+const index = require('./routes/index');
+const userRoutes = require('./routes/users.route');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,8 +24,16 @@ app.use(cors());
 
 // ==> Retornando a conexão via mysql via external file usando 'app.set()'
 app.set('mysql connection', mySqlConnection.connect);
+mySqlConnection.connect((err) => {
+  if (err) {
+    console.error('[ERROR] ', err);
+    throw err;
+  }
 
-// app.use(index);
-// app.use('/api/v1/', userRoutes);
+  console.info('[INFO] Conexão com MySQL estabelecida');
+});
+
+app.use(index);
+app.use('/api/v1/', userRoutes);
 
 module.exports = app;

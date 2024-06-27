@@ -5,7 +5,7 @@
  * author: Thamiris Gaspar
 */
 
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -20,15 +20,6 @@ const connection = mysql.createConnection({
   user: LOGIN,
   password: PASSWORD,
   database: DBNAME,
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.error('[ERROR] ', err);
-    throw err;
-  }
-
-  console.info('[INFO] Conexão com MySQL estabelecida');
 });
 
 module.exports = connection;
