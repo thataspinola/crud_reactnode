@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import Todo from "./components/Todo";
-import TodoForm from './components/TodoForm';
-import Search from './components/Search';
-import Filter from './components/Filter';
+import Todo from "../../components/Todo/Todo";
+import TodoForm from '../../components/Todo/TodoForm';
+import Search from '../../components/Todo/Search';
+import Filter from '../../components/Todo/Filter';
 
-import './App.css';
+import '../../styles/global.css';
 
-function App() {
+function Home() {
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -87,4 +87,4 @@ function App() {
   </div>;
 }
 
-export default App;
+export default Home;
